@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f7f4ee;
+  --surface: #ffffff;
+  --surface-2: #f0ece4;
+  --ink: #1f2328;
+  --ink-2: #4a4f55;
+  --muted: #8a8f96;
+  --line: rgba(31, 35, 40, 0.1);
+  --brand: #8b3a2b;
+  --sand: #c8a46a;
+  --stone: #9aa0a6;
+  --wash: rgba(139, 58, 43, 0.06);
+  --radius-card: 16px;
+  --radius-btn: 999px;
+  --radius-chip: 999px;
+  --texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+* {
+  @apply antialiased;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: theme('fontFamily.sans-cn');
+  background-image: var(--texture);
+  background-size: 320px 320px;
+  min-height: 100vh;
+}
+
+main {
+  @apply min-h-screen;
+}
+
+::selection {
+  background: var(--wash);
+}
+
+.paper-card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card, 0 10px 30px rgba(31, 35, 40, 0.06));
+  position: relative;
+}
+
+.paper-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+  background-image: var(--texture);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.serif-title {
+  font-family: theme('fontFamily.serif-cn');
+  letter-spacing: -0.01em;
+}
+
+.article-content h2,
+.article-content h3 {
+  font-family: theme('fontFamily.serif-cn');
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.article-content p {
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.article-content blockquote {
+  border-left: 3px solid var(--brand);
+  padding-left: 1.25rem;
+  color: var(--ink-2);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-chip text-sm bg-wash text-brand;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-medium text-white bg-brand hover:bg-[#732f23] transition;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-medium text-ink border border-ink border-opacity-20 hover:border-opacity-40 transition;
+}
+
+.chip-filter {
+  @apply rounded-chip border border-line px-3 py-1 text-sm text-ink-2 hover:border-brand hover:text-brand transition;
+}

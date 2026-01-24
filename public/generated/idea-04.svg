@@ -1,0 +1,55 @@
+<svg width="660" height="420" viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        
+  <linearGradient id="ideaPaper3" gradientTransform="rotate(90)">
+    <stop offset="0%" stop-color="#f5ecdf" />
+<stop offset="100%" stop-color="#F4EBDD" />
+  </linearGradient>
+
+        <mask id="ideaMask3">
+          <rect x="0" y="0" width="660" height="420" fill="#fff" />
+          <rect x="80" y="190" width="500" height="190" rx="24" ry="24" fill="#000" />
+        </mask>
+        
+  <filter id="ideaNoise3" x="0" y="0" width="1" height="1">
+    <feTurbulence type="fractalNoise" baseFrequency="0.6357174601056613" numOctaves="3" seed="92721" />
+    <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0" />
+  </filter>
+
+      </defs>
+      <rect width="660" height="420" fill="url(#ideaPaper3)" />
+      <g filter="url(#ideaNoise3)" opacity="0.35">
+        <rect width="660" height="420" fill="#000" />
+      </g>
+      <rect x="40" y="40" width="580" height="160" rx="18" fill="none" stroke="#b5a8a0" stroke-dasharray="7 10" opacity="0.6" />
+      <path d="M 60 100 Q 330 94 600 84" stroke="#6B5141" stroke-width="2" stroke-linecap="round" opacity="0.4" fill="none" />
+<path d="M 60 128 Q 330 122 600 140" stroke="#6B5141" stroke-width="2" stroke-linecap="round" opacity="0.4" fill="none" />
+<path d="M 60 156 Q 330 150 600 140" stroke="#6B5141" stroke-width="2" stroke-linecap="round" opacity="0.4" fill="none" />
+<path d="M 60 184 Q 330 178 600 196" stroke="#6B5141" stroke-width="2" stroke-linecap="round" opacity="0.4" fill="none" />
+      <rect x="270" y="40" width="120" height="24" rx="12" fill="#D8C6A9" opacity="0.7" />
+      <rect x="170" y="182" width="320" height="30" rx="8" fill="#D8C6A9" opacity="0.45" />
+      <g transform="translate(80, 190)">
+        <rect width="500" height="190" rx="24" fill="#F5E9DD" />
+        <path d="M 0 160 L 0 88 Q -32.5 66.12763735735862 0 75.80075307282314 Q 32.5 73.59684702930979 65 76.90247333182622 Q 97.5 87.00579389971821 130 88.38043557217529 Q 162.5 91.418354903172 195 95.04689943481819 Q 227.5 79.7478585970504 260 93.86993635338618 Q 292.5 65.98824894907867 325 81.70788159757959 Q 357.5 71.55471197113852 390 73.59700576360169 Q 422.5 76.14323829147256 455 78.30426888978295 Q 487.5 73.02050739277138 520 78.20134534809722 L 520 160 Z" fill="#A87D63" opacity="0.96" transform="translate(0, 20)" />
+        <path d="M 0 160 L 0 120 Q -32.5 100.90242200264166 0 117.16003519524511 Q 32.5 113.65744138141196 65 118.04585063573637 Q 97.5 115.59845162958749 130 123.07799089882695 Q 162.5 103.62153045775678 195 118.4109369096882 Q 227.5 93.12186173223719 260 110.81635379116003 Q 292.5 94.2699459116676 325 106.76299215325446 Q 357.5 92.17214707513568 390 109.57159517554038 Q 422.5 95.0933859156747 455 110.84550112390829 Q 487.5 109.78691765444246 520 115.89438680960639 L 520 160 Z" fill="#7C5A47" opacity="0.96" transform="translate(0, 40)" />
+        <path d="M 0 160 L 0 147.20000000000002 Q -32.5 141.6391011271174 0 146.02751038144183 Q 32.5 141.56725527005673 65 149.0467945392962 Q 97.5 131.4571556938815 130 146.24656214581293 Q 162.5 123.9953202157732 195 141.68981227469604 Q 227.5 126.76474905036585 260 139.2577952919527 Q 292.5 123.54350900491954 325 140.94295710532424 Q 357.5 125.9551854661114 390 141.707300674345 Q 422.5 138.62916293059993 455 144.73663208576386 Q 487.5 145.6302490621753 520 148.8448204716848 L 520 160 Z" fill="#574034" transform="translate(0, 60)" />
+        <circle cx="80" cy="50" r="18" fill="#b99782" opacity="0.55" />
+        <path d="M 30 150 Q 260 120 490 140" stroke="rgba(255,255,255,0.35)" stroke-width="2" fill="none" />
+      </g>
+      <rect x="70" y="210" width="520" height="210" rx="26" ry="26" fill="none" stroke="#C1B3A4" opacity="0.3" />
+      <g opacity="0.5">
+        <circle cx="100" cy="320" r="8" fill="#C69673" />
+        <rect x="120" y="308" width="120" height="8" rx="4" fill="#6B5141" opacity="0.4" />
+        <rect x="120" y="324" width="80" height="6" rx="3" fill="#6B5141" opacity="0.3" />
+      </g>
+      <g mask="url(#ideaMask3)">
+        <rect x="0" y="0" width="660" height="420" fill="rgba(0,0,0,0.04)" />
+      </g>
+      
+      <clipPath id="ideaLogo3">
+        <rect x="578" y="338" width="58" height="58" rx="10" ry="10" />
+      </clipPath>
+      <rect x="572" y="332" width="70" height="70" fill="rgba(60,40,30,0.12)" rx="16" />
+      <image href="../yezai.png" x="578" y="338" width="58" height="58" clip-path="url(#ideaLogo3)" preserveAspectRatio="xMidYMid slice" opacity="0.9" />
+    
+    </svg>
