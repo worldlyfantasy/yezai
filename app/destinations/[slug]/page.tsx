@@ -54,7 +54,10 @@ export default function DestinationDetail({
         <h2 className="font-serif-cn text-2xl text-ink">寻找适合的创作者</h2>
         <p className="mt-2 text-sm text-ink-2">查看与 {destination.name} 有长期合作的创作者，了解他们的工作方法与边界。</p>
         <Link
-          href={`/creators?destination=${destination.slug}`}
+          href={{
+            pathname: "/creators",
+            query: { destination: destination.slug }
+          }}
           className="mt-4 inline-flex rounded-btn border border-brand px-5 py-2 text-sm text-brand"
         >
           跳转至创作者页面

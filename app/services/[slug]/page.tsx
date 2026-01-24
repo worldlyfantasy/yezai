@@ -98,7 +98,10 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
           <h2 className="font-serif-cn text-3xl text-ink">创作者</h2>
           <p className="mt-2 text-base text-ink-2">{creator.name}</p>
           <p className="mt-1 text-sm text-ink-2">{creator.stance}</p>
-          <Link href={`/creators/${creator.slug}`} className="mt-3 inline-flex text-sm text-brand">
+          <Link
+            href={`/creators/${creator.slug}`}
+            className="mt-3 inline-flex text-sm text-brand"
+          >
             查看创作者详情 →
           </Link>
         </section>
@@ -108,7 +111,11 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
         <h2 className="font-serif-cn text-2xl text-ink">涉及目的地</h2>
         <div className="mt-3 flex flex-wrap gap-3 text-sm text-ink-2">
           {relatedDestinations.map((dest) => (
-            <Link key={dest.id} href={`/destinations/${dest.slug}`} className="chip-filter">
+            <Link
+              key={dest.id}
+              href={`/destinations/${dest.slug}`}
+              className="chip-filter"
+            >
               {dest.name}
             </Link>
           ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import type { Route } from "next";
 import type { Destination, TravelStyle } from "@/data";
 
 interface Props {
@@ -22,8 +23,8 @@ export const CreatorFilterBar = ({ destinations, styles }: Props) => {
       params.delete(key);
     }
     const queryString = params.toString();
-    const delimiter: "" | `?${string}` = queryString ? `?${queryString}` : "";
-    router.push(`/creators${delimiter}`);
+    const href = `/creators${queryString ? `?${queryString}` : ""}`;
+    router.push(href as Route);
   };
 
   return (

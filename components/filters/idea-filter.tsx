@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import type { Route } from "next";
 import type { Idea } from "@/data";
 import { cn } from "@/lib/utils";
 
@@ -20,8 +21,9 @@ export const IdeaFilterBar = ({ themes }: Props) => {
     } else {
       next.set("theme", theme);
     }
-    const query = next.toString() ? `?${next.toString()}` : "";
-    router.push(`/ideas${query}`);
+    const queryString = next.toString();
+    const href = `/ideas${queryString ? `?${queryString}` : ""}`;
+    router.push(href as Route);
   };
 
   return (

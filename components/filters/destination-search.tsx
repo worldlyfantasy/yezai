@@ -2,6 +2,7 @@
 
 import { FormEvent, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import type { Route } from "next";
 
 export const DestinationSearch = () => {
   const router = useRouter();
@@ -15,8 +16,10 @@ export const DestinationSearch = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const query = value.trim();
-    const search = query ? `?q=${encodeURIComponent(query)}` : "";
-    router.push(`/destinations${search}`);
+    const href = query
+      ? (`/destinations?q=${encodeURIComponent(query)}` as Route)
+      : ("/destinations" as Route);
+    router.push(href);
   };
 
   return (

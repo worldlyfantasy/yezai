@@ -2,10 +2,7 @@ import Link from "next/link";
 import type { Service, Creator } from "@/data";
 
 export const ServiceCard = ({ service, creator }: { service: Service; creator?: Creator }) => (
-  <Link
-    href={`/services/${service.slug}`}
-    className="flex flex-col gap-3 rounded-card border border-line/70 bg-surface p-5 shadow-card transition hover:-translate-y-1"
-  >
+  <Link href={`/services/${service.slug}`} className="flex flex-col gap-3 rounded-card border border-line/70 bg-surface p-5 shadow-card transition hover:-translate-y-1">
     <div className="flex items-center justify-between text-xs text-ink-2">
       <span className="rounded-chip bg-wash px-3 py-1 text-brand">{service.type}</span>
       <span>{service.durationTag}</span>

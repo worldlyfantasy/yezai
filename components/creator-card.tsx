@@ -4,10 +4,7 @@ import type { Creator } from "@/data";
 
 export const CreatorCard = ({ creator }: { creator: Creator }) => {
   return (
-    <Link
-      href={`/creators/${creator.slug}`}
-      className="paper-card flex flex-col gap-4 border border-line/60 bg-surface p-5 transition hover:-translate-y-1"
-    >
+    <Link href={`/creators/${creator.slug}`} className="paper-card flex flex-col gap-4 border border-line/60 bg-surface p-5 transition hover:-translate-y-1">
       <div className="flex items-center gap-3">
         <Image src={creator.avatar} alt={creator.name} width={72} height={72} className="h-16 w-16 rounded-full border border-line object-cover" />
         <div>

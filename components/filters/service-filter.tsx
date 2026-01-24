@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import type { Route } from "next";
 import type { ServiceType, TravelStyle } from "@/data";
 
 interface Props {
@@ -22,8 +23,9 @@ export const ServiceFilterBar = ({ destinationSlug, types, styles }: Props) => {
     } else {
       next.delete(key);
     }
-    const query = next.toString() ? `?${next.toString()}` : "";
-    router.push(`/destinations/${destinationSlug}${query}`);
+    const search = next.toString();
+    const href = (search ? `/destinations/${destinationSlug}?${search}` : `/destinations/${destinationSlug}`) as Route;
+    router.push(href);
   };
 
   return (
