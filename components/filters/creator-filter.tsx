@@ -21,7 +21,8 @@ export const CreatorFilterBar = ({ destinations, styles }: Props) => {
     } else {
       params.delete(key);
     }
-    const delimiter = params.toString() ? `?${params.toString()}` : "";
+    const queryString = params.toString();
+    const delimiter: "" | `?${string}` = queryString ? `?${queryString}` : "";
     router.push(`/creators${delimiter}`);
   };
 
