@@ -1,31 +1,23 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { creators, services } from "@/data";
+import { destinations, services } from "@/data";
 import { getDestinationBySlug } from "@/data/helpers";
 import type { ServiceType, TravelStyle } from "@/data";
-import { ServiceCard } from "@/components/service-card";
 import { ServiceFilterBar } from "@/components/filters/service-filter";
+import { DestinationServiceResults } from "@/components/destination-service-results";
 
 const serviceTypes = Array.from(new Set(services.map((service) => service.type))) as ServiceType[];
 const travelStyles = Array.from(new Set(services.flatMap((service) => service.styles))) as TravelStyle[];
 
-export default function DestinationDetail({
-  params,
-  searchParams
-}: {
-  params: { slug: string };
-  searchParams: { type?: ServiceType; style?: TravelStyle };
-}) {
+export function generateStaticParams() {
+  return destinations.map((destination) => ({ slug: destination.slug }));
+}
+
+export default function DestinationDetail({ params }: { params: { slug: string } }) {
   const destination = getDestinationBySlug(params.slug);
   if (!destination) return notFound();
-
-  const filteredServices = services.filter((service) => {
-    if (!service.destinationSlugs.includes(destination.slug)) return false;
-    if (searchParams.type && service.type !== searchParams.type) return false;
-    if (searchParams.style && !service.styles.includes(searchParams.style)) return false;
-    return true;
-  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
@@ -41,14 +33,13 @@ export default function DestinationDetail({
         </div>
       </div>
 
-      <ServiceFilterBar destinationSlug={destination.slug} types={serviceTypes} styles={travelStyles} />
+      <Suspense fallback={<p className="text-sm text-ink-2">正在载入筛选控件...</p>}>
+        <ServiceFilterBar destinationSlug={destination.slug} types={serviceTypes} styles={travelStyles} />
+      </Suspense>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {filteredServices.map((service) => (
-          <ServiceCard key={service.id} service={service} creator={creators.find((c) => c.id === service.creatorId)} />
-        ))}
-      </div>
-      {filteredServices.length === 0 && <p className="mt-8 text-sm text-ink-2">暂无符合筛选的服务。</p>}
+      <Suspense fallback={<p className="text-sm text-ink-2">正在载入服务列表...</p>}>
+        <DestinationServiceResults destinationSlug={destination.slug} />
+      </Suspense>
 
       <div className="mt-10 rounded-card border border-line/60 bg-surface-2/60 p-6">
         <h2 className="font-serif-cn text-2xl text-ink">寻找适合的创作者</h2>

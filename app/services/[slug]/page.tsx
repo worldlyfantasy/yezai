@@ -4,6 +4,10 @@ import { services, creators, destinations } from "@/data";
 import { getServiceBySlug } from "@/data/helpers";
 import { OrderButton } from "@/components/order-button";
 
+export function generateStaticParams() {
+  return services.map((service) => ({ slug: service.slug }));
+}
+
 export default function ServiceDetail({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
   if (!service) return notFound();

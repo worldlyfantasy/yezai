@@ -24,6 +24,10 @@ const renderBlocks = (body: string) => {
   });
 };
 
+export function generateStaticParams() {
+  return ideas.map((idea) => ({ slug: idea.slug }));
+}
+
 export default function IdeaDetail({ params }: { params: { slug: string } }) {
   const idea = getIdeaBySlug(params.slug);
   if (!idea) return notFound();

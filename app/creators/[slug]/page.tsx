@@ -5,6 +5,10 @@ import { creators, destinations, services } from "@/data";
 import { getCreatorBySlug } from "@/data/helpers";
 import { OrderButton } from "@/components/order-button";
 
+export function generateStaticParams() {
+  return creators.map((creator) => ({ slug: creator.slug }));
+}
+
 export default function CreatorDetail({ params }: { params: { slug: string } }) {
   const creator = getCreatorBySlug(params.slug);
   if (!creator) return notFound();
