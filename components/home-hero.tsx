@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { LogoMark } from "./logo-mark";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 
 export const HomeHero = () => {
@@ -18,10 +16,6 @@ export const HomeHero = () => {
       />
       <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-6xl flex-col gap-10 px-4 py-16 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-6">
-          <Badge variant="secondary" className="inline-flex items-center gap-2 px-4 py-1 text-sm font-normal">
-            <LogoMark size="sm" />
-            真实在场 · 与在地创作者同行
-          </Badge>
           <h1 className="font-serif-cn text-4xl tracking-tight text-ink drop-shadow-[0_1px_2px_rgba(253,248,240,0.8)] sm:text-5xl">
             野哉，留给慢速旅程与诚实表达的公共院子
           </h1>
