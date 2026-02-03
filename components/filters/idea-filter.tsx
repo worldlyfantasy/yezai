@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import type { Route } from "next";
 import type { Idea } from "@/data";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -29,13 +30,18 @@ export const IdeaFilterBar = ({ themes }: Props) => {
   return (
     <div className="mb-8 flex flex-wrap gap-3">
       {themes.map((theme) => (
-        <button
+        <Button
           key={theme}
+          variant="outline"
+          size="sm"
           onClick={() => toggle(theme)}
-          className={cn("chip-filter", current === theme && "border-brand text-brand")}
+          className={cn(
+            "rounded-chip border border-border px-3 py-1 text-sm text-muted-foreground hover:border-primary hover:text-primary",
+            current === theme && "border-primary text-primary"
+          )}
         >
           {theme}
-        </button>
+        </Button>
       ))}
     </div>
   );

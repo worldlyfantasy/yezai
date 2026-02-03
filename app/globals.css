@@ -3,31 +3,82 @@
 @tailwind utilities;
 
 :root {
-  --bg: #f7f4ee;
+  /* 字体：使用系统/本地字体栈，不依赖 Google Fonts，避免网络不可达时 dev 启动失败 */
+  --font-sans-cn: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif-cn: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif SC", serif;
+
+  /* 视觉配色：PANTONE 7562 C / 159 C / 174 C / 7508 C / 7401 C */
+  --bg: #fdf8f0;
   --surface: #ffffff;
-  --surface-2: #f0ece4;
+  --surface-2: #f8f0e3;
   --ink: #1f2328;
-  --ink-2: #4a4f55;
-  --muted: #8a8f96;
-  --line: rgba(31, 35, 40, 0.1);
-  --brand: #8b3a2b;
-  --sand: #c8a46a;
-  --stone: #9aa0a6;
-  --wash: rgba(139, 58, 43, 0.06);
+  --ink-2: #4a4038;
+  --muted: #6b5d52;
+  --line: rgba(153, 57, 33, 0.12);
+  --brand: #993921;
+  --brand-hover: #7a2e1a;
+  --sand: #bd9a5f;
+  --terracotta: #d15e14;
+  --stone: #8a7d70;
+  --wash: rgba(153, 57, 33, 0.08);
+  --cream: #f6dfa4;
+  --beige: #e1b77e;
   --radius-card: 16px;
   --radius-btn: 999px;
   --radius-chip: 999px;
   --texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+
+  /* shadcn/ui semantic tokens (mapped to design system) */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --primary: var(--brand);
+  --primary-foreground: #ffffff;
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--ink);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--ink-2);
+  --accent: var(--wash);
+  --accent-foreground: var(--brand);
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--brand);
+  --radius: var(--radius-card);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+
+  /* Hero 背景遮罩：与 --bg 同色相，压住背景图保证文字可读 */
+  --hero-overlay: linear-gradient(to bottom, rgba(253, 248, 240, 0.5), rgba(253, 248, 240, 0.65));
 }
 
 * {
   @apply antialiased;
 }
 
+/* 焦点与可访问性：跳过主内容链接（仅键盘聚焦时可见） */
+.skip-link {
+  @apply sr-only;
+}
+.skip-link:focus {
+  @apply fixed left-4 top-4 z-[100] m-0 h-auto w-auto overflow-visible rounded-md bg-primary px-4 py-2 text-primary-foreground outline-none ring-2 ring-ring ring-offset-2;
+  clip: auto;
+  clip-path: none;
+}
+
+/* 全局链接焦点环 */
+a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 body {
   background-color: var(--bg);
   color: var(--ink);
-  font-family: theme('fontFamily.sans-cn');
+  font-family: var(--font-sans-cn), -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
   background-image: var(--texture);
   background-size: 320px 320px;
   min-height: 100vh;
@@ -55,6 +106,17 @@ main {
   border-radius: var(--radius-card);
   background-image: var(--texture);
   opacity: 0.2;
+  pointer-events: none;
+}
+
+/* 轻纹理叠层（hero、重点卡片等） */
+.texture-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--texture);
+  opacity: 0.04;
   pointer-events: none;
 }
 
@@ -89,7 +151,10 @@ main {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-medium text-white bg-brand hover:bg-[#732f23] transition;
+  @apply inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-medium text-white bg-brand transition;
+}
+.btn-primary:hover {
+  background-color: var(--brand-hover);
 }
 
 .btn-outline {
@@ -98,4 +163,13 @@ main {
 
 .chip-filter {
   @apply rounded-chip border border-line px-3 py-1 text-sm text-ink-2 hover:border-brand hover:text-brand transition;
+}
+
+/* Hero 背景图层：仅作视觉底图，弱化纹理；无 hero-bg.png 时使用渐变过渡 */
+.hero-bg-layer {
+  background-color: var(--bg);
+  background-image: url("/hero-bg.png");
+  background-size: cover;
+  background-position: 60% center;
+  filter: blur(2px) saturate(0.88);
 }

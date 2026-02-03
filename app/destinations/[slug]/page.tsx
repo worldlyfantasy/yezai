@@ -25,10 +25,17 @@ export default function DestinationDetail({ params }: { params: { slug: string }
         ← 返回目的地
       </Link>
       <div className="mt-6 overflow-hidden rounded-card border border-line/60 bg-surface shadow-card">
-        <Image src={destination.cover} alt={destination.name} width={1200} height={600} className="h-80 w-full object-cover" />
+        <Image
+        src={destination.cover}
+        alt={destination.name}
+        width={1200}
+        height={600}
+        sizes="(max-width: 768px) 100vw, 1200px"
+        className="h-56 w-full object-cover object-center md:h-80"
+      />
         <div className="p-6">
           <p className="text-sm text-ink-2">目的地</p>
-          <h1 className="font-serif-cn text-4xl text-ink">{destination.name}</h1>
+          <h1 className="font-serif-cn text-3xl text-ink sm:text-4xl">{destination.name}</h1>
           <p className="mt-2 text-base leading-relaxed text-ink-2">{destination.description}</p>
         </div>
       </div>

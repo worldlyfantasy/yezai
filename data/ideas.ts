@@ -9,7 +9,7 @@ export const ideas: Idea[] = [
     title: "在阿坝听见雪线退后的呼吸",
     theme: "徒步与自然",
     summary: "沿着牧道缓慢上升，记录冰雪退缩后的溪声与人声混合。",
-    cover: "/generated/idea-01.svg",
+    cover: "/generated/idea-01.png",
     authorId: "creator-linyue",
     body: long([
       "### 登上第一道垭口之前\n清晨四点的村寨只剩牛铃，大家提着温水壶悄悄出门。我们走了两个小时才看见第一道垭口，雪线下移后裸露的黑色岩面像上一季留下的墨迹。没有任何人催促前进，我们只在需要时停下，聆听对岸冰层碎裂的声音。",
@@ -26,7 +26,7 @@ export const ideas: Idea[] = [
     title: "黔东南的黄昏一步步抹开",
     theme: "慢旅行",
     summary: "跟随侗寨织娘完成夜行仪式，在漫长的谈话里重新理解时间。",
-    cover: "/generated/idea-02.svg",
+    cover: "/generated/idea-02.png",
     authorId: "creator-cengu",
     body: long([
       "### 傍晚的饭桌\n第一天抵达黄岗时，寨子请我们参加一桌普通家宴，没有任何表演。饭桌上只说今天谁去田里，谁帮老人修屋檐，访客安静聆听。我们从这种秩序里感受到当地人对于‘在场’的理解：先成为一个会倾听的客人，再谈旅程。",
@@ -42,7 +42,7 @@ export const ideas: Idea[] = [
     title: "松花江口的锈迹为何动人",
     theme: "城市漫游",
     summary: "在严寒里巡游旧码头，理解一座城市如何与水相处。",
-    cover: "/generated/idea-03.svg",
+    cover: "/generated/idea-03.png",
     authorId: "creator-dufan",
     body: long([
       "### 先认识风向\n码头的风永远占据主导，所以下车第一件事就是站在风里，感受它要把你推向哪里。我们记录下风速、温度，再决定步伐，不让任何计划凌驾于身体。",
@@ -58,7 +58,7 @@ export const ideas: Idea[] = [
     title: "雨林晨雾里的呼吸练习",
     theme: "在场体验",
     summary: "清晨站在滇西南的雨林坡地，用嗅觉与叶片对话。",
-    cover: "/generated/idea-04.svg",
+    cover: "/generated/idea-04.png",
     authorId: "creator-menglu",
     body: long([
       "### 雾气中的安静\n四点半的雨林只有虫鸣，我们每个人背着记录册，沿着茶树间的石阶慢慢往上。孟芦提醒我们不要说话，用鼻尖感受空气里不同的草本味。雾气像柔软的布，隔开了外界的喧嚣。",
@@ -74,7 +74,7 @@ export const ideas: Idea[] = [
     title: "南疆沙丘的独处练习",
     theme: "疲惫与重置",
     summary: "让汽车停在沙丘边，让每个人拥有一段不被打扰的黄昏。",
-    cover: "/generated/idea-05.svg",
+    cover: "/generated/idea-05.png",
     authorId: "creator-shangli",
     body: long([
       "### 缓慢抵达\n我们没有在白天冲进沙丘，而是沿着国道慢慢行驶，确认每个人的状态。车辆的音乐来自当地朋友录制的驼铃声，提醒我们放轻呼吸。",
@@ -90,7 +90,7 @@ export const ideas: Idea[] = [
     title: "盐田边的对话笔记",
     theme: "城市漫游",
     summary: "在琼北盐田记录潮汐，理解盐工的日常节奏。",
-    cover: "/generated/idea-06.svg",
+    cover: "/generated/idea-06.png",
     authorId: "creator-dufan",
     body: long([
       "### 早潮\n第一天凌晨五点起床，踩着湿滑的礁石走到盐田，潮水刚退。盐工们用木耙推着海水，我们不打扰，只在一旁记录动作的顺序。",
@@ -106,7 +106,7 @@ export const ideas: Idea[] = [
     title: "青海湖的缓慢环线",
     theme: "徒步与自然",
     summary: "在湖岸驻扎四夜，观察水鸟与牧人的往来。",
-    cover: "/generated/idea-07.svg",
+    cover: "/generated/idea-07.png",
     authorId: "creator-hechen",
     body: long([
       "### 湖岸第一天\n我们抵达黑马河，一下车就关掉手机，先让身体与空气对齐。湖水平静到像一张未经裁切的纸，令人不自觉放慢语速。",
@@ -122,7 +122,7 @@ export const ideas: Idea[] = [
     title: "在武夷古道写一封给自己的信",
     theme: "疲惫与重置",
     summary: "跟随苏夕沿古道行走，把疲惫摊开在茶香里。",
-    cover: "/generated/idea-08.svg",
+    cover: "/generated/idea-08.png",
     authorId: "creator-suxi",
     body: long([
       "### 行走\n古道的石阶因苔藓变得柔软，我们踩着细雨前行。苏夕提醒大家把脚步放到呼吸里，每一步都对应一次长长的吐气。",
@@ -138,7 +138,7 @@ export const ideas: Idea[] = [
     title: "在鄂西峡谷与一个家庭并肩",
     theme: "在场体验",
     summary: "参与家务、记录影像、与峡谷人一起生活几天。",
-    cover: "/generated/idea-09.svg",
+    cover: "/generated/idea-09.png",
     authorId: "creator-yaoyao",
     body: long([
       "### 第一次开口\n到达第一晚，家庭成员请我们到厨房帮忙剁酸菜，边做边聊天。这个过程让我们从‘访客’转换成‘帮手’，关系也慢慢柔软。",
@@ -154,7 +154,7 @@ export const ideas: Idea[] = [
     title: "闽北溪谷的水声手稿",
     theme: "慢旅行",
     summary: "驻留溪谷三日，用录音与文字描绘不断变化的水声。",
-    cover: "/generated/idea-10.svg",
+    cover: "/generated/idea-10.png",
     authorId: "creator-menglu",
     body: long([
       "### 入谷\n抵达溪谷时正好下着细雨，竹叶把水声打散成无数层。我们沿着碎石路走进村子，在祠堂里铺开纸张，记录初听感受。",

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { services, creators, destinations } from "@/data";
 import { getServiceBySlug } from "@/data/helpers";
 import { OrderButton } from "@/components/order-button";
+import { Button } from "@/components/ui/button";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -115,13 +116,9 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
         <h2 className="font-serif-cn text-2xl text-ink">涉及目的地</h2>
         <div className="mt-3 flex flex-wrap gap-3 text-sm text-ink-2">
           {relatedDestinations.map((dest) => (
-            <Link
-              key={dest.id}
-              href={`/destinations/${dest.slug}`}
-              className="chip-filter"
-            >
-              {dest.name}
-            </Link>
+            <Button key={dest.id} asChild variant="outline" size="sm" className="rounded-chip">
+              <Link href={`/destinations/${dest.slug}`}>{dest.name}</Link>
+            </Button>
           ))}
         </div>
       </section>

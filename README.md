@@ -46,9 +46,9 @@ npm run dev
 
 执行 `npm run gen:mock` 会调用 `scripts/generate-mock-assets.ts`（通过 `ts-node` 运行 TypeScript）在 `public/generated/` 内生成/更新：
 
-- 创作者头像 `creator-01.svg ~ creator-08.svg`（圆形裁切 + 低饱和肤色/发色 + 颗粒纹理）
-- 目的地封面 `dest-01.svg ~ dest-12.svg`（多层地形、纸张噪点、LOGO 角标）
-- 灵感封面 `idea-01.svg ~ idea-10.svg`（杂志排版 + 低饱和风景）
+- 创作者头像 `creator-01.png ~ creator-08.png`（圆形裁切 + 低饱和肤色/发色 + 颗粒纹理）
+- 目的地封面 `dest-01.png ~ dest-12.png`（多层地形、纸张噪点、LOGO 角标）
+- 灵感封面 `idea-01.png ~ idea-10.png`（杂志排版 + 低饱和风景）
 
 脚本会自动读取 `public/yezai.png` 作为角标 Logo；若需替换品牌，只要更新该 Logo 并重新执行命令即可。
 
@@ -56,6 +56,7 @@ npm run dev
 
 - 所有图片位于 `public/generated/`（8 张创作者头像 SVG、12 张目的地封面、10 张灵感封面）。
 - 项目根目录需要 `yezai.png`，启动脚本会读取到 `public/yezai.png` 并用于 Header、弹窗与 favicon（`app/icon.png`）。如需替换，请将新 Logo 命名为 `yezai.png` 并放在 `public/` 根目录。
+- **首屏 Hero 背景**：将公司确定的 landing 背景图命名为 `hero-bg.png` 并放入 `public/`，首页 Hero 会将其作为底图并自动叠加遮罩以保证文字可读；若未放置该文件，首屏仍显示纯色背景。
 
 ## 目录结构
 

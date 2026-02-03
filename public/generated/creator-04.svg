@@ -34,20 +34,21 @@
         fill="url(#avatarGarment3)"
         opacity="0.95"
       />
-      <ellipse cx="190" cy="150" rx="84" ry="90" fill="#2F2420" />
-      <ellipse cx="190" cy="136" rx="94" ry="70" fill="#261d1a" opacity="0.85" />
-      <circle cx="190" cy="180" r="82" fill="#B9826D" />
-      <rect x="160" y="220" width="60" height="80" rx="22" fill="#B9826D" />
-      <ellipse cx="190" cy="244" rx="58" ry="40" fill="#6C7B72" opacity="0.45" />
-      <circle cx="144" cy="184" r="18" fill="#bf8c79" opacity="0.55" />
-      <circle cx="236" cy="184" r="18" fill="#bf8c79" opacity="0.55" />
-      <path d="M 145 175 Q 166 164 185 170" stroke="#2a201d" stroke-width="5" stroke-linecap="round" opacity="0.5" />
-      <path d="M 235 175 Q 214 164 195 170" stroke="#2a201d" stroke-width="5" stroke-linecap="round" opacity="0.5" />
-      <path d="M 158 185 Q 174 190 186 188" stroke="#231b18" stroke-width="6" stroke-linecap="round" />
-      <path d="M 222 185 Q 206 190 194 188" stroke="#231b18" stroke-width="6" stroke-linecap="round" />
-      <path d="M 190 170 Q 184 200 190 208" stroke="#8b6252" stroke-width="6" stroke-linecap="round" fill="none" />
-      <path d="M 176 218 Q 190 225 204 218" stroke="#b17c64" stroke-width="5" stroke-linecap="round" />
-      <path d="M 162 192 Q 190 200 218 192" stroke="#2d221e" stroke-width="7" stroke-linecap="round" opacity="0.7" />
+      <ellipse cx="190" cy="148" rx="86" ry="92" fill="#3d2e26" />
+      <ellipse cx="190" cy="134" rx="96" ry="72" fill="#2f2420" opacity="0.88" />
+      <circle cx="190" cy="178" r="84" fill="#c8a590" />
+      <rect x="158" y="218" width="64" height="84" rx="23" fill="#c8a590" />
+      <ellipse cx="190" cy="242" rx="60" ry="42" fill="#8a9186" opacity="0.48" />
+      <circle cx="142" cy="182" r="19" fill="#d1b09d" opacity="0.58" />
+      <circle cx="238" cy="182" r="19" fill="#d1b09d" opacity="0.58" />
+      <path d="M 143 172 Q 165 160 184 167" stroke="#342822" stroke-width="5.2" stroke-linecap="round" opacity="0.54" />
+      <path d="M 237 172 Q 215 160 196 167" stroke="#342822" stroke-width="5.2" stroke-linecap="round" opacity="0.54" />
+      <path d="M 156 183 Q 172 189 185 187" stroke="#2b211d" stroke-width="6.4" stroke-linecap="round" />
+      <path d="M 224 183 Q 208 189 195 187" stroke="#2b211d" stroke-width="6.4" stroke-linecap="round" />
+      <path d="M 190 168 Q 183 198 190 207" stroke="#9d7d6a" stroke-width="6.2" stroke-linecap="round" fill="none" />
+      <path d="M 175 216 Q 190 224 205 216" stroke="#c39580" stroke-width="5.2" stroke-linecap="round" />
+      <path d="M 160 190 Q 190 198 220 190" stroke="#3d2e26" stroke-width="7.5" stroke-linecap="round" opacity="0.72" />
+      <ellipse cx="190" cy="145" rx="78" ry="18" fill="#2f2420" opacity="0.65" />
       
       
       <clipPath id="avatarLogo3">

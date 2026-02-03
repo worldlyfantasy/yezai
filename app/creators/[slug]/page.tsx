@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { creators, destinations, services } from "@/data";
 import { getCreatorBySlug } from "@/data/helpers";
 import { OrderButton } from "@/components/order-button";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export function generateStaticParams() {
   return creators.map((creator) => ({ slug: creator.slug }));
@@ -31,9 +33,9 @@ export default function CreatorDetail({ params }: { params: { slug: string } }) 
             <p className="mt-2 text-base text-ink-2">{creator.stance}</p>
             <div className="mt-4 flex flex-wrap gap-2 text-xs">
               {creator.tags.map((tag) => (
-                <span key={tag} className="chip-filter bg-wash text-brand">
+                <Badge key={tag} variant="default">
                   {tag}
-                </span>
+                </Badge>
               ))}
             </div>
             <div className="mt-4 flex flex-wrap gap-4 text-sm text-ink-2">
@@ -127,9 +129,9 @@ export default function CreatorDetail({ params }: { params: { slug: string } }) 
         <h2 className="font-serif-cn text-3xl text-ink">相关目的地</h2>
         <div className="mt-4 flex flex-wrap gap-3 text-sm text-ink-2">
           {creatorDestinations.map((dest) => (
-            <Link key={dest.id} href={`/destinations/${dest.slug}`} className="chip-filter">
-              {dest.name}
-            </Link>
+            <Button key={dest.id} asChild variant="outline" size="sm" className="rounded-chip">
+              <Link href={`/destinations/${dest.slug}`}>{dest.name}</Link>
+            </Button>
           ))}
         </div>
       </section>

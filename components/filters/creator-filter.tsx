@@ -3,6 +3,15 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import type { Route } from "next";
 import type { Destination, TravelStyle } from "@/data";
+import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Props {
   destinations: Destination[];
@@ -28,37 +37,39 @@ export const CreatorFilterBar = ({ destinations, styles }: Props) => {
   };
 
   return (
-    <div className="mb-6 flex flex-col gap-4 rounded-card border border-line/60 bg-surface p-4 shadow-card md:flex-row md:items-center">
-      <label className="flex flex-col gap-1 text-sm text-ink">
-        目的地
-        <select
-          value={currentDest}
-          onChange={(e) => updateParam("destination", e.target.value)}
-          className="rounded-card border border-line bg-surface px-3 py-2 text-sm"
-        >
-          <option value="">全部</option>
-          {destinations.map((dest) => (
-            <option key={dest.slug} value={dest.slug}>
-              {dest.name}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label className="flex flex-col gap-1 text-sm text-ink">
-        旅行风格
-        <select
-          value={currentStyle}
-          onChange={(e) => updateParam("style", e.target.value)}
-          className="rounded-card border border-line bg-surface px-3 py-2 text-sm"
-        >
-          <option value="">全部</option>
-          {styles.map((style) => (
-            <option key={style} value={style}>
-              {style}
-            </option>
-          ))}
-        </select>
-      </label>
-    </div>
+    <Card className="mb-6 flex flex-col gap-4 border-line/60 p-4 shadow-card md:flex-row md:items-end">
+      <CardContent className="flex flex-col gap-2 p-0">
+        <Label>目的地</Label>
+        <Select value={currentDest || "all"} onValueChange={(v) => updateParam("destination", v === "all" ? "" : v)}>
+          <SelectTrigger className="w-full md:w-[180px]">
+            <SelectValue placeholder="全部" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">全部</SelectItem>
+            {destinations.map((dest) => (
+              <SelectItem key={dest.slug} value={dest.slug}>
+                {dest.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </CardContent>
+      <CardContent className="flex flex-col gap-2 p-0">
+        <Label>旅行风格</Label>
+        <Select value={currentStyle || "all"} onValueChange={(v) => updateParam("style", v === "all" ? "" : v)}>
+          <SelectTrigger className="w-full md:w-[180px]">
+            <SelectValue placeholder="全部" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">全部</SelectItem>
+            {styles.map((style) => (
+              <SelectItem key={style} value={style}>
+                {style}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </CardContent>
+    </Card>
   );
 };

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ideas, creators } from "@/data";
 import { getIdeaBySlug } from "@/data/helpers";
 import { OrderButton } from "@/components/order-button";
+import { Button } from "@/components/ui/button";
 
 const renderBlocks = (body: string) => {
   return body.split("\n\n").map((block, index) => {
@@ -56,12 +57,9 @@ export default function IdeaDetail({ params }: { params: { slug: string } }) {
             <p className="text-sm text-ink-2">{author.stance}</p>
           </div>
           <div className="flex flex-1 flex-wrap gap-3 sm:justify-end">
-            <Link
-              href={`/creators/${author.slug}`}
-              className="btn-outline"
-            >
-              查看创作者
-            </Link>
+            <Button asChild variant="outline" size="lg">
+              <Link href={`/creators/${author.slug}`}>查看创作者</Link>
+            </Button>
             <OrderButton>联系并下单</OrderButton>
           </div>
         </div>

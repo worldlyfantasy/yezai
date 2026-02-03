@@ -22,8 +22,8 @@ export const LogoMark = ({ size = "sm", className = "" }: { size?: keyof typeof 
         className={className}
         aria-label="野哉章"
       >
-        <rect x="4" y="4" width="72" height="72" rx="12" fill="#8b3a2b" opacity="0.9" />
-        <text x="40" y="46" textAnchor="middle" fontSize="28" fill="#f7f4ee" fontFamily="Songti SC, serif">
+        <rect x="4" y="4" width="72" height="72" rx="12" fill="#993921" opacity="0.9" />
+        <text x="40" y="46" textAnchor="middle" fontSize="28" fill="#fdf8f0" fontFamily="Songti SC, serif">
           野哉
         </text>
       </svg>
