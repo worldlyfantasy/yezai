@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export const IdeaCard = ({ idea, author }: { idea: Idea; author?: Creator }) => (
-  <Link href={`/ideas/${idea.slug}`} className="group block rounded-card transition-all duration-200 ease-out hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+  <Link href={`/ideas/${idea.slug}`} className="group block w-full break-inside-avoid rounded-card transition-all duration-200 ease-out hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
     <Card className="paper-card flex flex-1 flex-col overflow-hidden border-line/60 shadow-card transition-shadow duration-200 group-hover:shadow-float">
       <Image
       src={idea.cover}

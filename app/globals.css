@@ -51,7 +51,7 @@
   --popover-foreground: var(--ink);
 
   /* Hero 背景遮罩：与 --bg 同色相，压住背景图保证文字可读 */
-  --hero-overlay: linear-gradient(to bottom, rgba(253, 248, 240, 0.5), rgba(253, 248, 240, 0.65));
+  --hero-overlay: linear-gradient(to bottom, rgba(253, 248, 240, 0.65), rgba(253, 248, 240, 0.8));
 }
 
 * {
@@ -172,4 +172,25 @@ main {
   background-size: cover;
   background-position: 60% center;
   filter: blur(2px) saturate(0.88);
+}
+
+/* Masonry layout: balanced columns with consistent vertical gaps */
+.masonry-balanced {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.masonry-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+@media (max-width: 639px) {
+  .masonry-balanced {
+    flex-direction: column;
+  }
 }

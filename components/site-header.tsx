@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { LogoMark } from "./logo-mark";
@@ -33,27 +33,32 @@ const navItems: NavItem[] = [
 ];
 
 function NavLinks({
-  pathname,
-  matchPath,
   item,
+  isActive,
   className,
   onLinkClick,
+  onItemClick,
 }: {
-  pathname: string;
-  matchPath: string;
   item: NavItem;
+  isActive: boolean;
   className?: string;
   onLinkClick?: () => void;
+  onItemClick?: () => void;
 }) {
   const key = typeof item.href === "string" ? item.href : `${item.href.pathname}#${item.href.hash}`;
+  const handleClick = () => {
+    onItemClick?.();
+    onLinkClick?.();
+  };
   return (
     <Link
       key={key}
       href={item.href}
-      onClick={onLinkClick}
+      onClick={handleClick}
       className={cn(
         "block rounded-sm py-2 transition-colors duration-150 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        pathname.startsWith(matchPath) && "text-ink font-medium",
+        isActive && "font-medium text-[rgb(153,57,33)]",
+        !isActive && "text-ink-2",
         className
       )}
     >
@@ -66,19 +71,32 @@ export const SiteHeader = () => {
   const { open } = useOrderModal();
   const pathname = usePathname();
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const readHash = () => setHash(typeof window !== "undefined" ? window.location.hash.slice(1) : "");
+    readHash();
+    const onHashChange = () => setHash(window.location.hash.slice(1));
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [pathname]);
+
+  const isBecomeActive = pathname === "/" && hash === "become";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/60 bg-bg/90 shadow-sm backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-          <LogoMark size="sm" />
-          <span className="font-serif-cn text-2xl tracking-tight text-ink">野哉</span>
+    <header className="sticky top-0 z-40 bg-bg/90 shadow-sm backdrop-blur">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" aria-label="野哉 首页">
+          <LogoMark size="xl" />
         </Link>
-        <nav aria-label="主导航" className="hidden gap-5 text-sm text-ink-2 md:flex">
+        <nav aria-label="主导航" className="hidden gap-5 text-sm md:flex">
           {navItems.map((item) => {
             const matchPath = item.matchPath ?? (typeof item.href === "string" ? item.href : item.href.pathname);
+            const isHashItem = typeof item.href !== "string" && item.href.pathname === "/" && item.href.hash === "become";
+            const isActive = isHashItem ? isBecomeActive : pathname.startsWith(matchPath);
+            const onItemClick = isHashItem ? () => setHash("become") : undefined;
             return (
-              <NavLinks key={typeof item.href === "string" ? item.href : `${item.href.pathname}#${item.href.hash}`} pathname={pathname} matchPath={matchPath} item={item} className="py-0" />
+              <NavLinks key={typeof item.href === "string" ? item.href : `${item.href.pathname}#${item.href.hash}`} item={item} isActive={isActive} className="py-0" onItemClick={onItemClick} />
             );
           })}
         </nav>
@@ -101,13 +119,16 @@ export const SiteHeader = () => {
               <nav aria-label="主导航（移动端）" className="mt-6 flex flex-col gap-1 text-base text-ink-2">
                 {navItems.map((item) => {
                   const matchPath = item.matchPath ?? (typeof item.href === "string" ? item.href : item.href.pathname);
+                  const isHashItem = typeof item.href !== "string" && item.href.pathname === "/" && item.href.hash === "become";
+                  const isActive = isHashItem ? isBecomeActive : pathname.startsWith(matchPath);
+                  const onItemClick = isHashItem ? () => setHash("become") : undefined;
                   return (
                     <NavLinks
                       key={typeof item.href === "string" ? item.href : `${item.href.pathname}#${item.href.hash}`}
-                      pathname={pathname}
-                      matchPath={matchPath}
                       item={item}
+                      isActive={isActive}
                       onLinkClick={() => setSheetOpen(false)}
+                      onItemClick={onItemClick}
                     />
                   );
                 })}
