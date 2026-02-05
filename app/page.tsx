@@ -28,8 +28,8 @@ export default function HomePage() {
   return (
     <div>
       <HomeHero />
-      <section className="mx-auto max-w-6xl px-4 py-16 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:100ms]">
-        <div className="mb-8 flex items-center justify-between">
+      <section className="mx-auto max-w-6xl px-4 py-20 lg:px-8 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:100ms]">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm text-ink-2">真实创作者网络</p>
             <h2 className="font-serif-cn text-2xl text-ink sm:text-3xl">精选创作者</h2>
@@ -38,15 +38,15 @@ export default function HomePage() {
             查看全部 →
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredCreators.map((creator) => (
             <CreatorCard key={creator.id} creator={creator} />
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:200ms]">
-        <div className="mb-8 flex items-center justify-between">
+      <section className="mx-auto max-w-6xl px-4 py-20 lg:px-8 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:200ms]">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm text-ink-2">在地风景</p>
             <h2 className="font-serif-cn text-2xl text-ink sm:text-3xl">精选目的地</h2>
@@ -55,15 +55,15 @@ export default function HomePage() {
             浏览目的地 →
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2">
           {featuredDestinations.map((destination) => (
             <DestinationCard key={destination.id} destination={destination} />
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:300ms]">
-        <div className="mb-8 flex items-center justify-between">
+      <section className="mx-auto max-w-6xl px-4 py-20 lg:px-8 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:300ms]">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm text-ink-2">灵感与长文</p>
             <h2 className="font-serif-cn text-2xl text-ink sm:text-3xl">旅行灵感</h2>
@@ -72,25 +72,25 @@ export default function HomePage() {
             阅读更多 →
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredIdeas.map(({ idea, author }) => (
             <IdeaCard key={idea.id} idea={idea} author={author} />
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:400ms]">
-        <Card className="relative overflow-hidden border-line/50 px-6 py-10 shadow-card texture-overlay">
-          <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <section className="mx-auto max-w-6xl px-4 py-20 lg:px-8 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:400ms]">
+        <Card className="relative overflow-hidden border-line/50 px-8 py-12 shadow-card texture-overlay">
+          <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-sm text-muted-foreground">托管机制</p>
               <h2 className="font-serif-cn text-2xl text-foreground sm:text-3xl">如何运作</h2>
             </div>
             <OrderButton variant="primary" />
           </div>
-          <div className="grid gap-6 md:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step) => (
-              <div key={step.title} className="space-y-2 border-l border-border pl-4">
+              <div key={step.title} className="space-y-2 border-l border-border/60 pl-5">
                 <h3 className="font-serif-cn text-lg text-foreground sm:text-xl">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{step.detail}</p>
               </div>
@@ -103,8 +103,8 @@ export default function HomePage() {
         <Separator />
       </div>
 
-      <section id="become" className="mx-auto max-w-6xl px-4 py-16 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:500ms]">
-        <div className="rounded-card border border-dashed border-brand/40 bg-wash/40 p-8 text-center text-ink">
+      <section id="become" className="mx-auto max-w-6xl px-4 py-20 lg:px-8 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 [animation-fill-mode:both] [animation-delay:500ms]">
+        <div className="rounded-card border border-dashed border-brand/40 bg-wash/40 p-10 text-center text-ink">
           <div className="mb-4 flex items-center justify-center gap-3 text-brand">
             <StampMark />
             <span className="font-serif-cn text-2xl sm:text-3xl">成为创作者</span>
