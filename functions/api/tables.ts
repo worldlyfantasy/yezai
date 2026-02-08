@@ -1,6 +1,6 @@
 export async function onRequest(context: any) {
     try {
-      const db = context.env.yezadata;
+      const db = context.env.yezaidata;
   
       const { results } = await db
         .prepare("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;")
